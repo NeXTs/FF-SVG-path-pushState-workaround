@@ -10,6 +10,7 @@ This workaround should refresh pattern paths on route change, whereby SVG won't 
 It **does not** observe `window.onpopstate` event so you have to call it manually once route changes.
 
 > [Demo without fix](http://jsfiddle.net/GfVKN/) Take a look at Firefox
+
 > [Demo with fix](http://jsfiddle.net/GfVKN/3)
 
 Usage
