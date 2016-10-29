@@ -1,7 +1,7 @@
 {
   "name": "ff-svg-path-pushstate-workaround",
-  "version": "1.0.3",
-  "description": "Adresses FF issue",
+  "version": "1.0.4",
+  "description": "FF SVG patterns path issue workaround",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
