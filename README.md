@@ -36,7 +36,7 @@ By default it will lookup for all tags containing pattern in stroke or fill attr
 You may change it to fit your needs by passing custom selector as optional argument
 `fixSVGPathsFF('path') // will affect all path tags`
 
-P.s. Please note that default selector would search only fill/stroke specified **by attributes**. It won't find its parameters specified by styles, so you have to specify selector that will suit your needs, as mentioned above. (For example 'path' worked for me because on my project only path tags were used and all stroke/path parameters were specified by styles)
+P.s. Please note that default selector would search only fill/stroke specified **by attributes**. It won't find those parameters specified by styles, so you have to provide selector that will suit your needs, as mentioned above. (For example 'path' worked for me because on my project only path tags were used and all stroke/path parameters were specified by styles)
 
 As example of usage with `react-router`
 
