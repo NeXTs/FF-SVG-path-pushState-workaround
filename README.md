@@ -7,7 +7,10 @@ Having this stack you may noticed FF adds ` none;` to the end of `fill/stroke` p
 
 This workaround should refresh pattern paths on route change, whereby SVG won't break.
 
-It **don't** observe `window.onpopstate` event so you should call it manually after route changes.
+It **does not** observe `window.onpopstate` event so you should call it manually after route changes.
+
+[Demo without fix](http://jsfiddle.net/GfVKN/) Take a look at Firefox
+[Demo with fix](http://jsfiddle.net/GfVKN/3)
 
 Usage
 
@@ -22,17 +25,17 @@ or
 
 var fixSVGPathsFF = window.ffSvgPathPushstateWorkaround
 
-// at some point route changes
+// at some point when route changes
 fixSVGPathsFF()
 ```
 
 By default it will lookup for all tags containing pattern in stroke or fill attributes.
-`[fill^="url(#"], [stroke^="url(#"]`
+`document.querySelectorAll([fill^="url(#"], [stroke^="url(#"])`
 
-You may change fit it to your needs by passing custom selector as optional argument
+You may change it to fit your needs by passing custom selector as optional argument
 `fixSVGPathsFF('path') // will affect all path tags`
 
-P.s. Please note that default selector would search only fill/stroke specified by attributes. It won't find its parameters specified by styles, so you have to specify selector that will suit your needs, as mentioned above. (For example 'path' worked for me because on my project only path tags were used and all stroke/path parameters were specified by styles)
+P.s. Please note that default selector would search only fill/stroke specified *by attributes*. It won't find its parameters specified by styles, so you have to specify selector that will suit your needs, as mentioned above. (For example 'path' worked for me because on my project only path tags were used and all stroke/path parameters were specified by styles)
 
 As example of usage with `react-router`
 
