@@ -1,4 +1,4 @@
-/*! FF-SVG-path-pushState-workaround - v1.0.0 - 2016-10-29
+/*! FF-SVG-path-pushState-workaround - v1.0.1 - 2016-10-29
 * http://NeXTs.github.com/ff-svg-path-pushstate-workaround/
 * Copyright (c) 2016 Denis Lukov; Licensed MIT */
 
@@ -13,7 +13,7 @@
     if (typeof module != 'undefined') module.exports = definition()
     else if (typeof define == 'function' && typeof define.amd == 'object') define(definition)
     else this[name] = definition()
-}('ff-svg-path-pushstate-workaround', function() {
+}('ffSvgPathPushstateWorkaround', function() {
 
     var isFirefox = /firefox/i.test(navigator.userAgent), ffVersion
     if(isFirefox) ffVersion = parseInt(navigator.userAgent.split('/').pop())
