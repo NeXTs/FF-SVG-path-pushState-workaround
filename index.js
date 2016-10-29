@@ -1,4 +1,4 @@
-/*! FF-SVG-path-pushState-workaround - v1.0.1 - 2016-10-29
+/*! FF-SVG-path-pushState-workaround - v1.0.2 - 2016-10-29
 * http://NeXTs.github.com/ff-svg-path-pushstate-workaround/
 * Copyright (c) 2016 Denis Lukov; Licensed MIT */
 
@@ -18,10 +18,10 @@
     var isFirefox = /firefox/i.test(navigator.userAgent), ffVersion
     if(isFirefox) ffVersion = parseInt(navigator.userAgent.split('/').pop())
     
-    return function() {
+    return function(selector) {
         if( ! isFirefox || ffVersion >= 51) return
 
-        var patterns = document.querySelectorAll('[fill^="url(#"], [stroke^="url(#"]')
+        var patterns = document.querySelectorAll(selector || '[fill^="url(#"], [stroke^="url(#"]')
         for(var i = 0, ii = patterns.length, pattern; i < ii; i++) {
             pattern = patterns[i]
             pattern.style.fill = pattern.style.fill
