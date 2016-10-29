@@ -1,0 +1,1 @@
+# FF-SVG-path-pushState-workaround
