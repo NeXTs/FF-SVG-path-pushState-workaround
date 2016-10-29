@@ -1,6 +1,6 @@
 {
   "name": "ff-svg-path-pushstate-workaround",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Adresses FF issue",
   "main": "index.js",
   "scripts": {

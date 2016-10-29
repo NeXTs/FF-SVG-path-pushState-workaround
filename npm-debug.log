@@ -1,0 +1,103 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Users\\Denis\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'publish' ]
+2 info using npm@3.8.2
+3 info using node@v5.10.1
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: 'C:\\Projects\\FF-SVG-path-pushState-workaround',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory C:\Users\Denis\AppData\Roaming\npm-cache\ff-svg-path-pushstate-workaround\1.0.2\package.tgz not in flight; packing
+9 verbose correctMkdir C:\Users\Denis\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+10 info lifecycle ff-svg-path-pushstate-workaround@1.0.2~prepublish: ff-svg-path-pushstate-workaround@1.0.2
+11 silly lifecycle ff-svg-path-pushstate-workaround@1.0.2~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ 'C:\\Users\\Denis\\AppData\\Roaming\\npm-cache\\ff-svg-path-pushstate-workaround\\1.0.2\\package.tgz',
+12 verbose tar pack   'C:\\Projects\\FF-SVG-path-pushState-workaround' ]
+13 verbose tarball C:\Users\Denis\AppData\Roaming\npm-cache\ff-svg-path-pushstate-workaround\1.0.2\package.tgz
+14 verbose folder C:\Projects\FF-SVG-path-pushState-workaround
+15 verbose addLocalTarball adding from inside cache C:\Users\Denis\AppData\Roaming\npm-cache\ff-svg-path-pushstate-workaround\1.0.2\package.tgz
+16 verbose correctMkdir C:\Users\Denis\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+17 silly cache afterAdd ff-svg-path-pushstate-workaround@1.0.2
+18 verbose afterAdd C:\Users\Denis\AppData\Roaming\npm-cache\ff-svg-path-pushstate-workaround\1.0.2\package\package.json not in flight; writing
+19 verbose correctMkdir C:\Users\Denis\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+20 verbose afterAdd C:\Users\Denis\AppData\Roaming\npm-cache\ff-svg-path-pushstate-workaround\1.0.2\package\package.json written
+21 silly publish { name: 'ff-svg-path-pushstate-workaround',
+21 silly publish   version: '1.0.2',
+21 silly publish   description: 'Adresses FF issue',
+21 silly publish   main: 'index.js',
+21 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+21 silly publish   keywords:
+21 silly publish    [ 'svg',
+21 silly publish      'firefox',
+21 silly publish      'ff',
+21 silly publish      'path',
+21 silly publish      'pattern',
+21 silly publish      'fill',
+21 silly publish      'history',
+21 silly publish      'pushstate' ],
+21 silly publish   author: { name: 'Denis Lukov' },
+21 silly publish   license: 'MIT',
+21 silly publish   readme: '# FF-SVG-path-pushState-workaround\r\n\r\nBrutal workaround for [FF issue #652991](https://bugzilla.mozilla.org/show_bug.cgi?id=652991)\r\n\r\nMay be useful for SPA who rely on SVG patterns `url(#...)` and `history.pushState`.\r\nHaving this stack you may noticed FF adds ` none;` to the end of `fill/stroke` paths after changing route, causing SVG paths to break.\r\n\r\nThis workaround should refresh pattern paths on route change, whereby SVG won\'t break.\r\n\r\nIt **does not** observe `window.onpopstate` event so you have to call it manually once route changes.\r\n\r\n> [Demo without fix](http://jsfiddle.net/GfVKN/) Take a look at Firefox\r\n\r\n> [Demo with fix](http://jsfiddle.net/GfVKN/3)\r\n\r\nUsage\r\n\r\n```\r\nimport fixSVGPathsFF from \'ff-svg-path-pushstate-workaround\'\r\n\r\nor \r\n\r\nvar fixSVGPathsFF = require(\'ff-svg-path-pushstate-workaround\')\r\n\r\nor\r\n\r\nvar fixSVGPathsFF = window.ffSvgPathPushstateWorkaround\r\n\r\n// at some point when route changes\r\nfixSVGPathsFF()\r\n```\r\n\r\nBy default it will lookup for all tags containing pattern in stroke or fill attributes.\r\n`document.querySelectorAll([fill^="url(#"], [stroke^="url(#"])`\r\n\r\nYou may change it to fit your needs by passing custom selector as optional argument\r\n`fixSVGPathsFF(\'path\') // will affect all path tags`\r\n\r\nP.s. Please note that default selector would search only fill/stroke specified *by attributes*. It won\'t find its parameters specified by styles, so you have to specify selector that will suit your needs, as mentioned above. (For example \'path\' worked for me because on my project only path tags were used and all stroke/path parameters were specified by styles)\r\n\r\nAs example of usage with `react-router`\r\n\r\n```\r\n// yes, this should be called on every route change\r\nconst fixSVGPatternPathsInFF = () => {\r\n    fixSVGPathsFF(\'path\')\r\n}\r\n\r\n<Route path=\'/\' component={App}>\r\n    <Route path=\'profile\' component={Profile} onEnter={fixSVGPatternPathsInFF} />\r\n    ...\r\n</Route>\r\n```\r\n\r\nMIT\r\n',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: '73d5a34270b0dc8279424592707b1677fc16928b',
+21 silly publish   _id: 'ff-svg-path-pushstate-workaround@1.0.2',
+21 silly publish   _shasum: '7ab5297b538f4d481951613ad5dcca7ba1d5888c',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name ff-svg-path-pushstate-workaround
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry uri https://registry.npmjs.org/ff-svg-path-pushstate-workaround
+27 verbose publish registryBase https://registry.npmjs.org/
+28 silly publish uploading C:\Users\Denis\AppData\Roaming\npm-cache\ff-svg-path-pushstate-workaround\1.0.2\package.tgz
+29 verbose request uri https://registry.npmjs.org/ff-svg-path-pushstate-workaround
+30 verbose request sending authorization for write operation
+31 info attempt registry request try #1 at 1:22:18 PM
+32 verbose request using bearer token for auth
+33 verbose request id c5eb354d2a62db28
+34 http request PUT https://registry.npmjs.org/ff-svg-path-pushstate-workaround
+35 http 403 https://registry.npmjs.org/ff-svg-path-pushstate-workaround
+36 verbose headers { 'content-type': 'application/json',
+36 verbose headers   'cache-control': 'max-age=300',
+36 verbose headers   'content-length': '95',
+36 verbose headers   'accept-ranges': 'bytes',
+36 verbose headers   date: 'Sat, 29 Oct 2016 11:22:22 GMT',
+36 verbose headers   via: '1.1 varnish',
+36 verbose headers   connection: 'keep-alive',
+36 verbose headers   'x-served-by': 'cache-lhr6323-LHR',
+36 verbose headers   'x-cache': 'MISS',
+36 verbose headers   'x-cache-hits': '0',
+36 verbose headers   'x-timer': 'S1477740141.923172,VS0,VE838',
+36 verbose headers   vary: 'Accept-Encoding' }
+37 verbose request invalidating C:\Users\Denis\AppData\Roaming\npm-cache\registry.npmjs.org\ff-svg-path-pushstate-workaround on PUT
+38 error publish Failed PUT 403
+39 verbose stack Error: "You cannot publish over the previously published version 1.0.2." : ff-svg-path-pushstate-workaround
+39 verbose stack     at makeError (C:\Users\Denis\AppData\Roaming\npm\node_modules\npm\node_modules\npm-registry-client\lib\request.js:264:12)
+39 verbose stack     at CachingRegistryClient.<anonymous> (C:\Users\Denis\AppData\Roaming\npm\node_modules\npm\node_modules\npm-registry-client\lib\request.js:252:14)
+39 verbose stack     at Request._callback (C:\Users\Denis\AppData\Roaming\npm\node_modules\npm\node_modules\npm-registry-client\lib\request.js:172:14)
+39 verbose stack     at Request.self.callback (C:\Users\Denis\AppData\Roaming\npm\node_modules\npm\node_modules\request\request.js:199:22)
+39 verbose stack     at emitTwo (events.js:100:13)
+39 verbose stack     at Request.emit (events.js:185:7)
+39 verbose stack     at Request.<anonymous> (C:\Users\Denis\AppData\Roaming\npm\node_modules\npm\node_modules\request\request.js:1036:10)
+39 verbose stack     at emitOne (events.js:95:20)
+39 verbose stack     at Request.emit (events.js:182:7)
+39 verbose stack     at IncomingMessage.<anonymous> (C:\Users\Denis\AppData\Roaming\npm\node_modules\npm\node_modules\request\request.js:963:12)
+40 verbose statusCode 403
+41 verbose pkgid ff-svg-path-pushstate-workaround
+42 verbose cwd C:\Projects\FF-SVG-path-pushState-workaround
+43 error Windows_NT 6.3.9600
+44 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\Denis\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "publish"
+45 error node v5.10.1
+46 error npm  v3.8.2
+47 error code E403
+48 error "You cannot publish over the previously published version 1.0.2." : ff-svg-path-pushstate-workaround
+49 error If you need help, you may report this error at:
+49 error     <https://github.com/npm/npm/issues>
+50 verbose exit [ 1, true ]
