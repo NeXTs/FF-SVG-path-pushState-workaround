@@ -2,14 +2,15 @@
 
 Brutal workaround for [FF issue #652991](https://bugzilla.mozilla.org/show_bug.cgi?id=652991)
 
-May be useful for SPA who rely on SVG patterns `url(#...)` and history.pushState.
+May be useful for SPA who rely on SVG patterns `url(#...)` and `history.pushState`.
 Having this stack you may noticed FF adds ` none;` to the end of `fill/stroke` paths after changing route, causing SVG paths to break.
 
 This workaround should refresh pattern paths on route change, whereby SVG won't break.
 
-It **does not** observe `window.onpopstate` event so you should call it manually after route changes.
+It **does not** observe `window.onpopstate` event so you have to call it manually once route changes.
 
 [Demo without fix](http://jsfiddle.net/GfVKN/) Take a look at Firefox
+
 [Demo with fix](http://jsfiddle.net/GfVKN/3)
 
 Usage
