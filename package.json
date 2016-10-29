@@ -1,0 +1,21 @@
+{
+  "name": "ff-svg-path-pushstate-workaround",
+  "version": "1.0.0",
+  "description": "Adresses FF issue",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "svg",
+    "firefox",
+    "ff",
+    "path",
+    "pattern",
+    "fill",
+    "history",
+    "pushstate"
+  ],
+  "author": "Denis Lukov",
+  "license": "MIT"
+}
