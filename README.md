@@ -13,6 +13,10 @@ It **does not** observe `window.onpopstate` event so you have to call it manuall
 
 > [Demo with fix](http://jsfiddle.net/GfVKN/3)
 
+```
+npm i ff-svg-path-pushstate-workaround -S
+```
+
 Usage
 
 ```
